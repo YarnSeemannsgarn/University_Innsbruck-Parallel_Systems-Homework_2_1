@@ -1,0 +1,6 @@
+cache_misses_row_wise
+cache_misses_row_wise_fortran
+cache_misses_column_wise
+cache_misses_column_wise_fortran
+cachegrind*
+*.o
