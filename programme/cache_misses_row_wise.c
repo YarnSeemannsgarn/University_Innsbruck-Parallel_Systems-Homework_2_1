@@ -19,16 +19,21 @@ int main(int argc, char *argv[]){
     return EXIT_FAILURE;
   }
 
-  // Traverse matrix row wise
+  // Traverse matrix row wise & measure time
   int i, j;
+  clock_t begin, end;
+  double time_spent;
   srand48(time(NULL));
   printf("Starting to traverse %zux%zu matrix row-wise\n", N, N);
+  begin = clock();
   for(i=0; i<N; ++i){
     for(j=0; j<N; ++j){
       matrix[i][j] = lrand48() % RANGE_MAX;
     }
   }
-  printf("Done\n");
-
+  end = clock();
+  time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+  printf("Time spent: %fs\n", time_spent);  
+  
   return EXIT_SUCCESS;
 }
