@@ -5,7 +5,7 @@ First of all build all programmes:
 
     $ make
     
-Afterwards you can run the programmes (e.g. bubble sort) as follows:
+Afterwards you can run the programmes (e.g. cache_misses_row_wise) as follows:
 
     $ ./cache_misses_row_wise <problem-size>
     
@@ -44,6 +44,8 @@ cache_misses_row_wise_fortran    | 2048x2048    | 0.17           | I1 misses: 16
 cache_misses_column_wise_fortran | 2048x2048    | 0.08           | I1 misses: 1679, D1 misses:  267318, LL misses:  267882
 
 
-The execution times obiously dependson the cache misses. The more misses there are, the longer the programme runs, becausee it has to load the data from main memory.
+The execution times obviously depend on the cache misses. The more misses there are, the longer the programme runs, because it has to load the data from main memory.
 
-In c the row wise version has the smaller execution time, in fortran the colum version is faster. This is due to the different methods for arranging multidimensional arrays in linear storage (like memory). C has row-major order, Fortran has column-major order.
+In C the row-wise version has the smaller execution time, in Fortran the colum version is faster. This is due to the different methods for arranging multidimensional arrays in linear storage (like memory). C has row-major order, where consecutive elements of the rows of the array are contiguous in memory. Fortran has column-major order, where consecutive elements of the columns are contiguous.
+
+The difference between the column-wise C-version and the row-wise Fortran-version is due to different compilers and measurement details and the D1 and LL misses.
